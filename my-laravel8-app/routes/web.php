@@ -13,6 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/users/{id}', function($id){
+//     return 'This is user '.id;
+// });
+// Dynamic value / parameter 
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/about', function(){
+    return view('pages.about');
+});
+
+Route::get('/', 'PagesController@index');
