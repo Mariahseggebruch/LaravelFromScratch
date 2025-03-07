@@ -102,5 +102,9 @@ class PostsController extends Controller
         if (!isset($post)){
             return redirect('/posts')->with('error', 'No Post Found');
     }
+    // Delete post
+    $post->delete();
+
+    return redirect('/posts')->with('success', 'Post Removed');
 }
 }
