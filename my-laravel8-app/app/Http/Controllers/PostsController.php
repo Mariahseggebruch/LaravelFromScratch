@@ -7,6 +7,11 @@ use App\Models\Post;
 
 class PostsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -102,6 +107,9 @@ class PostsController extends Controller
         //Check if post exists before deleting
         if (!isset($post)){
             return redirect('/posts')->with('error', 'No Post Found');
+    }
+    if(auth()->user()->id !==$post->user_id){
+        return redirect('/posts')->with('error', 'Unauthorized Page');
     }
     // Delete post
     $post->delete();

@@ -8,8 +8,12 @@
         </div>
         <hr>
         <small>Written on {{$post->created_at}} by {{$post->user->name}}</small>
+        @if (!Auth::guest())
+            @if(Auth::user()->iid == $post->user_id)
         {!! Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'pull-right']) !!}
         {{Form::hidden('_method', 'DELETE')}}
         {{Form::submit('Delete', ['class' => 'btn btn-danger'] )}}
-        {!!Form::close()!!}
+        {!! Form::close() !!}
+        @endif
+        @endif
 @endsection
