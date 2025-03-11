@@ -17,18 +17,19 @@
                                 <th></th>
                                 <th></th>
                             </tr>
-                            {{-- @foreach($posts as $post)
+                            @foreach($posts as $post)
                                 <tr>
-                                    <td>{{$post->title}}</td>
-                                    <td><a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a></td>
+                                    <td>{{ $post->title }}</td>
+                                    <td><a href="{{ route('posts.edit', $post->id) }}" class="btn btn-default">Edit</a></td>
                                     <td>
-                                        {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
-                                            {{Form::hidden('_method', 'DELETE')}}
-                                            {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
-                                        {!!Form::close()!!}
+                                        <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
                                     </td>
                                 </tr>
-                            @endforeach --}}
+                            @endforeach
                         </table>
                     @else
                         <p>You have no posts</p>
