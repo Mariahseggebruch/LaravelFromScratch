@@ -23,14 +23,16 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarContent">
-                    <ul class="navbar-nav mr-auto">
+                    <!-- Main navigation items -->
+                    <ul class="navbar-nav mx-auto">
                         <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ url('/about') }}">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ url('/services') }}">Services</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ url('/posts') }}">Blog</a></li>
                     </ul>
 
-                    <ul class="navbar-nav ml-auto">
+                    <!-- User authentication section -->
+                    <ul class="navbar-nav">
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">Login</a>
@@ -49,8 +51,8 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ url('/dashboard') }}">Dashboard</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
                                         Logout
                                     </a>
 
