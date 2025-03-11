@@ -12117,3 +12117,57 @@ main.py-4 {
   padding-top: 1rem !important;
   padding-bottom: 1rem !important;
 }
+
+.card {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+  transition: box-shadow 0.3s ease;
+}
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.card .card-body {
+  padding: 1.5rem;
+}
+.card .card-title {
+  margin-bottom: 0.75rem;
+}
+.card .card-title a {
+  color: #333;
+  text-decoration: none;
+}
+.card .card-title a:hover {
+  color: #007bff;
+}
+.card img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.pagination {
+  margin-top: 2rem;
+}
+.pagination .page-link {
+  color: #333;
+  border: 1px solid #dee2e6;
+}
+.pagination .page-link:hover {
+  background-color: #f8f9fa;
+  border-color: #dee2e6;
+}
+.pagination .page-item.active .page-link {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+@media (max-width: 767px) {
+  .card .card-body {
+    padding: 1rem;
+  }
+  .card img {
+    margin-bottom: 1rem;
+  }
+}
